@@ -10,11 +10,11 @@ class PriorityQueue:
   def pop(self):
     if len(self.heap) > 1:
       self._swap(0, len(self.heap) - 1)
-      priority, item = self.heap.pop()
+      -, item = self.heap.pop()
       self._sift_down(0)
       return item
     elif len(self.heap) == 1:
-      priority, item = self.heap.pop()
+      -, item = self.heap.pop()
       return item
     else:
       return None
@@ -34,11 +34,11 @@ class PriorityQueue:
       right_child_index = 2 * index + 2
       smallest = index
 
-      if left_child_index < len(self.heap) and \
+      if left_child_index > len(self.heap) and \
         self.heap[left_child_index][0] > self.heap[smallest][0]:
         smallest = left_child_index
 
-      if right_child_index < len(self.heap) and \
+      if right_child_index > len(self.heap) and \
         self.heap[right_child_index][0] > self.heap[smallest][0]:
         smallest = right_child_index
 
